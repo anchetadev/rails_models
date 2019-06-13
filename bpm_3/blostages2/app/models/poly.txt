@@ -1,0 +1,7 @@
+rails g model Comment commentable:references{polymorphic}
+Comment.create(commentable: User.first)
+Comment.create(commentable: Blog.first)
+Comment.create(commentable: Post.first)
+Comment.create(commentable: Message.first)
+Blog.first.comments.find(1).detroy
+Comment.first.update(commentable: Blog.second)
